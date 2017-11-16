@@ -1,31 +1,58 @@
-<!-- CSS -->
-
-body { margin: 0; background: #333; }
-header {
-  padding: .5rem;
-  font-size: 0;
-  display: -ms-flexbox;
-  -ms-flex-wrap: wrap;
-  -ms-flex-direction: column;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  display: -webkit-box;
-  display: flex;
+* {
+  margin: 0;
+  padding: 0;
 }
-header div {
-  -webkit-box-flex: auto;
-  -ms-flex: auto;
-  flex: auto;
-  margin: .5rem;
 
+body {
+  background: #ccc;
 }
-header div img {
+
+.slider {
+  width: 640px;
+  position: relative;
+  padding-top: 480px;
+  margin: 20px auto;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+}
+
+.slider > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s;
+}
+
+.slider input {
+  display: none;
+}
+
+.slider label {
+  width: 60px;
+  margin: 20px 2px;
+  float: left;
+  border: 2px solid #999;
+  cursor: pointer;
+  transition: all 0.5s;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+
+.slider label img {
   width: 100%;
-  height: auto;
-  border: 1px solid #fff;
+  display: block;
 }
-@media screen and (max-width: 400px) {
-  header div { margin: 0; }
-  header { padding: 0; }
 
+.slider input:checked + label {
+  border-color: #666;
+  opacity: 1;
+}
+
+.slider input ~ img {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.slider input:checked + label + img {
+  opacity: 1;
+  transform: scale(1);
 }
